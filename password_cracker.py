@@ -1,4 +1,5 @@
 import hashlib
+import sys
 
 def loadFile(filename):
     file = open(filename,"r")
@@ -34,3 +35,9 @@ def crack_sha1_hash(hash, use_salts=False):
                 value = currentPass
                 break
     return value
+
+if __name__ == "__main__":
+    try:
+        print(crack_sha1_hash(sys.argv[1], sys.argv[2]))
+    except:
+        print(crack_sha1_hash(sys.argv[1]))
